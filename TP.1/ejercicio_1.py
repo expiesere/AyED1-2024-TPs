@@ -20,13 +20,13 @@ def mayor_estricto(a, b, c):
     
 def main():
     """
-    Solicita al usuario tres numeros enteros positivos e invoca la funcion mayor_estricto
+    Solicita al usuario tres numeros enteros positivos e invoca la funcion mayor_estricto.
 
     Pre:
     - Los valores que se ingresan deben ser enteros positivos.
 
     Post:
-    - Muestra el mayor valor unico o -1 si no existe.
+    - Muestra el mayor valor unico o un mensaje si no existe.
     """
 
     a = int(input("Ingrese el primer numero entero positivo: "))
@@ -38,7 +38,7 @@ def main():
     if resultado != -1:
         print(f"El mayor valor unico es: {resultado}")
     else:
-        print("No hay valor mayor unico.")
+        print("No existe un valor mayor unico.")
     
     return None
 

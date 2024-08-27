@@ -11,6 +11,26 @@ def es_bisiesto(year):
     return year % 4 == 0 and (year % 100 != 0 or year % 400 == 0)
 
 
+def valor_true_false(day, month, year):
+    mes_valido = 1 <= month <= 12
+    if mes_valido:
+        if month == 2 and es_bisiesto(year):
+            dias_x_mes[2] = 29
+        dia_valido = 1 <= day <= dias_x_mes[month]
+    else:
+        dia_valido = False
+    año_valido = year > 0
+    return {"dia_valido": dia_valido, "mes_valido": mes_valido, "año_valido": año_valido}
+
+
+def mostrar_validacion(day, month, year):
+    validacion = valor_true_false(day, month, year)
+    print(f"Valor de dia: {validacion['dia_valido']}")
+    print(f"Valor de mes: {validacion['mes_valido']}")
+    print(f"Valor de año: {validacion['año_valido']}")
+    return None
+
+
 def fecha_valida(day, month, year):
     """
     Verifica si la fecha ingresada es valida, utiliza el diccionario 'dia_x_mes = {mes:dia}' y la funcion 'es_bisiesto'.
@@ -32,8 +52,10 @@ def fecha_valida(day, month, year):
     else:
         dias_x_mes[2] = 28
     
-
-    if month in dias_x_mes and day > dias_x_mes[month]:
+    if month in dias_x_mes:
+        if day > dias_x_mes[month]:
+            return False  
+    else:
         return False
     
     return True
@@ -52,6 +74,8 @@ def main():
     day = int(input("\nIngrese el dia: "))
     month = int(input("Ingrese el mes: "))
     year = int(input("Ingrese el año: "))
+
+    mostrar_validacion(day, month, year)
 
     if fecha_valida(day, month, year):
         print(f"La fecha {day}/{month}/{year} es valida.")

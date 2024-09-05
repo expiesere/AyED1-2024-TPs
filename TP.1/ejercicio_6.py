@@ -12,7 +12,14 @@ def concatenar_numeros(num1, num2):
     Post:
         -Retorna el resultado de esos dos numeros juntos
     """
-    return f"{num1}{num2}"
+    digitos = 0  # Esta variable va contar la cantidad de digitos que tiene num2
+    contar_digitos = num2  # Esta variable tiene el valor de num2 para no modificar el valor original de num2
+    while contar_digitos > 0:  # Mientras el valor sea mayor a 0, entra a este bucle
+        contar_digitos //= 10  # Divide esta variable por 10 y guarda el valor en la misma variable x cada iteracion
+        digitos += 1  # Actua como contador de cada iteracion
+    return (
+        num1 * (10**digitos) + num2
+    )  # Calcula el resultado de num1 multiplicando x 10 al numero de digitos en num2, eso crea un espacio de ceros para dar lugar a num2
 
 
 def main():

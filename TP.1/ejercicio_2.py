@@ -1,8 +1,9 @@
 """Ejercicio 2"""
 
+
 def es_bisiesto(year):
     """
-    Un año es bisiesto si es divisible por 4, pero no por 100, 
+    Un año es bisiesto si es divisible por 4, pero no por 100,
     a menos que también sea divisible por 400.
 
     Pre:
@@ -87,7 +88,7 @@ def fecha_valida(day, month, year):
 
 def main():
     """
-    Le solicita al usuario que ingrese una fecha y verifica 
+    Le solicita al usuario que ingrese una fecha y verifica
     si es valida llamando a la funcion 'fecha_valida'.
 
     Pre:
@@ -110,7 +111,6 @@ def main():
     else:
         print(f"La fecha {day}/{month}/{year} no es valida.")
     return None
-
 
 
 DIAS_X_MES = {

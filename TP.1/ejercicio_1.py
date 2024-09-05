@@ -1,17 +1,18 @@
 """Ejercicio 1"""
 
+
 def mayor_estricto(a, b, c):
     """
     Evalua 3 numeros enteros positivos y devuelve el mayor valor unico o -1 si no existe.
-    
+
     Pre:
     - a, b, c son enteros positivos.
-    
+
     Post:
     - Devuelve el mayor valor si es único.
     - Devuelve -1 si no hay un valor mayor único.
     """
-    max_val = max(a,b,c)
+    max_val = max(a, b, c)
 
     contar = (a == max_val) + (b == max_val) + (c == max_val)
 
@@ -19,6 +20,8 @@ def mayor_estricto(a, b, c):
         return max_val
     else:
         return -1
+
+
 def main():
     """
     Solicita al usuario tres numeros enteros positivos e invoca la funcion mayor_estricto.
@@ -41,6 +44,7 @@ def main():
     else:
         print("No existe un valor mayor unico.")
     return None
+
 
 if __name__ == "__main__":
     main()

@@ -1,6 +1,7 @@
-"""Ejercicio 5"""
-
 """
+Ejercicio 5
+
+
 DATO DE COLOR
 
 Números Triangulares:

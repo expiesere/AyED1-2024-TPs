@@ -49,17 +49,17 @@ def main():
 
             case "1":
                 lista = generar_lista()
-                print("\nLista generada:", lista)
+                print(f"\nLista generada: {lista}")
             case "2":
                 if lista:
                     repetidos = tiene_repetidos(lista)
-                    print("\n¿La lista tiene elementos repetidos?", repetidos)
+                    print(f"\n¿La lista tiene elementos repetidos? {repetidos}")
                 else:
                     print("\nPrimero debe generar una lista.")
             case "3":
                 if lista:
                     lista_unicos = elementos_unicos(lista)
-                    print("\nLista con elementos únicos:", lista_unicos)
+                    print(f"\nLista con elementos únicos: {lista_unicos}")
                 else:
                     print("\nPrimero debe generar una lista.")
             case "4":

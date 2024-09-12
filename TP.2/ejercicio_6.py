@@ -1,28 +1,32 @@
 """Ejercicio 6"""
 
+
 def normalizar(lista):
     """
     Normaliza una lista de numeros enteros para que la suma de todos sus elementos sea 1.0
 
     Pre:
         -lista de numeros enteros (int)
-    
+
     Post:
         -lista de numeros normalizados (float)
     """
     suma = sum(lista)
     return [x / suma for x in lista]
 
-#Funcion principal
+
+# Funcion principal
 def main():
     """
-    Solicita al usuario que ingrese una lista numeros enteros separados por comas, 
+    Solicita al usuario que ingrese una lista numeros enteros separados por comas,
     normaliza la lista y muesta el resultado.
     """
     while True:
         try:
             # Solicita al usuario que ingrese los valores de la lista
-            datos = input("\nIngresa una secuencia de numeros separados solo por comas: ")
+            datos = input(
+                "\nIngresa una secuencia de numeros separados solo por comas: "
+            )
             lista = list(map(int, datos.split(",")))
             break  # Sale del bucle si la conversion es exitosa
         except ValueError:

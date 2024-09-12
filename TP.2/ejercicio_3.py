@@ -7,4 +7,4 @@ n = int(input("Ingresa un numero entero: "))
 cuadrados = [i**2 for i in range(1, n + 1)]
 
 # Imprime los ultimos 10 valores de la lista
-print("Los valores de la lista son:", cuadrados[-10:])
+print(f"Los valores de la lista son: {cuadrados[-10:]}")

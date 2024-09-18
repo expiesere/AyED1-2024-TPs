@@ -29,6 +29,7 @@ def main() -> None:
         for fila in matriz:
             print(" ".join(map(str, fila)))
         print()
+    return None
 
 
 if __name__ == "__main__":

@@ -1,7 +1,8 @@
 """Ejercicio 3"""
 
+
 def cargar_matriz(n: int) -> list:
-    """Genera una matriz de tamaño NxN con numeros enteros unicos en 
+    """Genera una matriz de tamaño NxN con numeros enteros unicos en
     intervalos de [0, N^2).
 
     Pre:
@@ -10,7 +11,7 @@ def cargar_matriz(n: int) -> list:
     Post:
         list[NxN[int]]: Matriz NxN con numeros enteros unicos.
     """
-    numeros = list(range(n * n)) # :O
+    numeros = list(range(n * n))  # :O
     matriz = [numeros[i * n : (i + 1) * n] for i in range(n)]
     return matriz
 

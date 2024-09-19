@@ -2,6 +2,7 @@
 
 import random as rn
 
+
 def mostrar_butacas(sala: list[list[int]]) -> None:
     """
     Muestra por pantalla el estado de cada una de las butacas del cine.
@@ -66,7 +67,7 @@ def butacas_contiguas(sala: list[list[int]]) -> tuple[int, int, int]:
         -sala (List[List[int]]): La matriz que representa la sala de cine.
 
     Post:
-        -Tuple[int, int, int]: Las coordenadas de inicio de la secuencia mas larga de 
+        -Tuple[int, int, int]: Las coordenadas de inicio de la secuencia mas larga de
          butacas libres contiguas (fila, inicio, longitud).
     """
     max_fila, max_inicio, max_longitud = -1, -1, 0
@@ -85,9 +86,10 @@ def butacas_contiguas(sala: list[list[int]]) -> tuple[int, int, int]:
             max_fila, max_inicio, max_longitud = i, inicio, longitud
     return max_fila, max_inicio, max_longitud
 
+
 def seleccionar_1_indice(n: int, tipo: str) -> int:
     """
-    Muestra los indices disponibles y permite al usuario 
+    Muestra los indices disponibles y permite al usuario
     seleccionar un indice, verificando que sea valido.
 
     Pre:
@@ -107,6 +109,7 @@ def seleccionar_1_indice(n: int, tipo: str) -> int:
         except ValueError:
             print("Ingrese un numero enteros valido >:(")
     return None
+
 
 def main() -> None:
     """
@@ -136,7 +139,9 @@ def main() -> None:
 
     fila, inicio, longitud = butacas_contiguas(sala)
     if fila != -1:
-        print(f"\nLa secuencia mas larga de butacas libres contiguas esta en la fila {fila}, comenzando en la butaca {inicio} con una longitud de {longitud}.")
+        print(
+            f"\nLa secuencia mas larga de butacas libres contiguas esta en la fila {fila}, comenzando en la butaca {inicio} con una longitud de {longitud}."
+        )
     else:
         print("\nNo hay secuencias de butacas libres contiguas.")
     return None

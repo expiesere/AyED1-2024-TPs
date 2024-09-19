@@ -1,6 +1,7 @@
 """Ejercicio 9"""
 
 
+
 def limpiar_palabra(palabra: str) -> str:
     """
     Elimina los signos de puntuacion de una palabra.

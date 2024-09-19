@@ -1,6 +1,7 @@
 """Ejercicio 4"""
 
 
+
 def entero_a_romano(numero: int) -> str:
     """
     Convierte un numero entero entre 0 y 3999 a su representacion en

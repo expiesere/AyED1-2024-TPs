@@ -1,6 +1,7 @@
 """Ejercicio 1"""
 
 
+
 def es_capicua(cadena: str) -> bool:
     """
     Determina si una cadena de caracteres es palindromo (capicua), una cadena es capicua si

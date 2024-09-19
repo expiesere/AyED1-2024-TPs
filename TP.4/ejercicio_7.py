@@ -1,6 +1,7 @@
 """Ejercicio 7"""
 
 
+
 def eliminar_subcadena_rebanadas(cadena: str, posicion: int, cantidad: int) -> str:
     """
     Elimina una subcadena de una cadena de caracteres utilizando rebanadas.

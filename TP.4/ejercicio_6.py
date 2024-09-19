@@ -1,6 +1,7 @@
 """Ejercicio 6"""
 
 
+
 def extraer_subcadena_rebanadas(cadena: str, posicion: int, cantidad: int) -> str:
     """
     Extrae una subcadena de una cadena de caracteres utilizando rebanadas.

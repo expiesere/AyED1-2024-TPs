@@ -1,6 +1,7 @@
 """Ejercicio 5"""
 
 
+
 def filtrar_palabras_ciclos(frase: str, n: int) -> str:
     """
     Filtra las palabras de una frase que tienen N o mas caracteres utilizando ciclos normales.

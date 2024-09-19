@@ -1,6 +1,7 @@
 """Ejercicio 8"""
 
 
+
 def ultimos_n_caracteres(cadena: str, n: int) -> str:
     """
     Devuelve una subcadena con los últimos N caracteres de una cadena dada.

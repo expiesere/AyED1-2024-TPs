@@ -1,6 +1,7 @@
 """Ejercicio 2"""
 
 
+
 def centrar_cadena(cadena: str) -> None:
     """
     Lee una cadena de caracteres e imprime la cadena centrada en una pantalla

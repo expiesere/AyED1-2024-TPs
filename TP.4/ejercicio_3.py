@@ -1,6 +1,7 @@
 """Ejercicio 3"""
 
 
+
 def obtener_claves(clave_maestra: str) -> tuple:
     """
     Obtiene las dos claves a partir de la clave maestra.

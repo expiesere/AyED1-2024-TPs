@@ -3,7 +3,7 @@
 import random as rn
 
 
-def cargar_matriz(n: int) -> list:
+def cargar_matriz(n: int) -> list[list[int]]:
     """
     Carga una matriz de tamaño NxN con numeros al azar.
 

@@ -50,7 +50,7 @@ def intercambiar_columnas(matriz: list[list[int]], col1: int, col2: int) -> None
     Pre:
         -matriz (List[List[int]]): La matriz.
         -col1 (int): Indice de la primera columna.
-        -col2 (int): Índice de la segunda columna.
+        -col2 (int): Indice de la segunda columna.
     """
     for fila in matriz:
         fila[col1], fila[col2] = fila[col2], fila[col1]
@@ -182,19 +182,26 @@ def seleccionar_2_indices(n: int, tipo: str) -> tuple[int, int]:
     """
     while True:
         try:
-            indice1 = int(input(f"\n...Indice de la primera {tipo} a intercambiar (0 a {n-1}): "))
-            indice2 = int(input(f"...Indice de la segunda {tipo} a intercambiar (0 a {n-1}): "))
+            indice1 = int(
+                input(f"\n...Indice de la primera {tipo} a intercambiar (0 a {n-1}): ")
+            )
+            indice2 = int(
+                input(f"...Indice de la segunda {tipo} a intercambiar (0 a {n-1}): ")
+            )
             if 0 <= indice1 < n and 0 <= indice2 < n and indice1 != indice2:
                 return indice1, indice2
             else:
-                print(f"Importante! Los indices estan entre 0 y {n-1} y que no deben ser iguales.")
+                print(
+                    f"Importante! Los indices estan entre 0 y {n-1} y que no deben ser iguales."
+                )
         except ValueError:
             print("Ingrese numeros enteros validos >:(")
     return None
 
+
 def seleccionar_1_indice(n: int, tipo: str) -> int:
     """
-    Muestra los indices disponibles y permite al usuario 
+    Muestra los indices disponibles y permite al usuario
     seleccionar un indice, verificando que sea valido.
 
     Pre:
@@ -210,10 +217,11 @@ def seleccionar_1_indice(n: int, tipo: str) -> int:
             if 0 <= indice < n:
                 return indice
             else:
-                print(f"Importante! El índice esta entre 0 y {n-1}.")
+                print(f"Importante! El indice esta entre 0 y {n-1}.")
         except ValueError:
             print("Ingrese un numero enteros valido >:(")
     return None
+
 
 def main() -> None:
     """
@@ -259,7 +267,8 @@ def main() -> None:
 
     capicua = es_capicua(matriz)
     print(f"\nCapicua: {capicua}")
-    return None #SAQUENME DE ACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+    return None  # SAQUENME DE ACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+
 
 if __name__ == "__main__":
     main()

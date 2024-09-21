@@ -1,58 +1,53 @@
 """Ejercicio 3"""
 
 
-def calcular_gasto(viajes, tarifa_maxima):
+def obtener_valor_pasaje(cantidad_viajes: int) -> float:
     """
-    Calcula el gasto total en viajes segun la cantidad de viajes realizados y
-    la tarifa maxima.
+    Devuelve el valor del pasaje segun la cantidad de viajes realizados.
 
     Pre:
-        -Cantidad de viajes realizados en un mes
-        -Tarifa maxima del pasaje
+    - cantidad_viajes es un entero positivo.
 
     Post:
-        -Gasto total de viajes
+    - Devuelve el valor del pasaje con el descuento correspondiente.
     """
-    if viajes <= 20:
-        return viajes * tarifa_maxima
-    elif 21 <= viajes <= 30:
-        return viajes * tarifa_maxima * 0.8
-    elif 31 <= viajes <= 40:
-        return viajes * tarifa_maxima * 0.7
+    tarifa_maxima = 100.0  # hipotetico caso de que la tarifa vale $ 100 °0°/
+
+    if cantidad_viajes <= 20:
+        valor_pasaje = cantidad_viajes * tarifa_maxima
+    elif 21 <= cantidad_viajes <= 30:
+        valor_pasaje = cantidad_viajes * (tarifa_maxima * 0.80)  # 20% de descuento
+    elif 31 <= cantidad_viajes <= 40:
+        valor_pasaje = cantidad_viajes * (tarifa_maxima * 0.70)  # 30% de descuento
     else:
-        return viajes * tarifa_maxima * 0.6
+        valor_pasaje = cantidad_viajes * (tarifa_maxima * 0.60)  # 40% de descuento
+    return valor_pasaje
 
 
-def solicitar_cantidad_viajes():
+def main() -> None:
     """
-    Le solicita al usuario que ingrese la cantidad de viajes realizados en un mes.
+    Solicita al usuario la cantidad de viajes realizados y muestra el valor del pasaje.
+
+    Pre:
+    - El usuario ingresa un numero entero positivo.
+
+    Post:
+    - Muestra el valor del pasaje con el descuento.
+
+    No retorna nada.
     """
     while True:
         try:
-            viajes = int(input("Ingrese la cantidad de viajes realizados en el mes: "))
-            if viajes < 0:
-                print("Por favor, ingrese un número positivo.")
+            cantidad_viajes = int(input("Cantidad de viajes realizados: "))
+            if cantidad_viajes >= 1:
+                valor_pasaje = obtener_valor_pasaje(cantidad_viajes)
+                print(f"El valor del pasaje es: ${valor_pasaje:.2f}")
             else:
-                return viajes
+                print("Debe ser un numero positivo.")
         except ValueError:
-            print("Dato no válido, por favor ingrese un número entero.")
-
-
-def main():
-    """
-    Invoca la funcion 'solicitar_cantidad_viajes' para que el usuario ingrese
-    cantidad de viajes x mes y 'calcular_gasto' para evaluar el gasto total.
-    """
-    for tarifa in tarifas_maximas:
-        viajes = solicitar_cantidad_viajes()
-        gasto = calcular_gasto(viajes, tarifa)
-        print(
-            f"Con {viajes} viajes y una tarifa máxima de {tarifa}, el gasto total es: {gasto}"
-        )
+            print("Error: Ingrese solo numeros enteros positivos.")
+            continue
     return None
-
-
-tarifas_maximas = [100, 150, 200]
 
 
 if __name__ == "__main__":

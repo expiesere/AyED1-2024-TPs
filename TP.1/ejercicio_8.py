@@ -70,6 +70,8 @@ def main() -> None:
     """
     Funcion principal que solicita al usuario el mes y el año, 
     y luego imprime el calendario correspondiente.
+
+    No retorna nada.
     """
     # Solicitar entrada del usuario
     month = int(input("Introduce el mes (1-12): "))

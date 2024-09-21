@@ -1,22 +1,24 @@
 """Ejercicio 9"""
 
 import random as rn
+from typing import Tuple
 
 def simular_peso_naranja() -> int:
     """
-    Simula el peso de una naranja generando un número entero al azar entre 150 y 350 gramos.
+    Con la biblioteca random crea valores aleatorios que van a representar
+    el peso de las naranjas.
     
-    Pre:
-        -int: Peso de la naranja en gramos.
+    Post:
+        -int: Peso de la naranja.
     """
     return rn.randint(150, 350)
 
-def clasificar_naranjas(cantidad: int) -> tuple:
+def clasificar_naranjas(cantidad: int) -> Tuple:
     """
     Clasifica las naranjas en aptas para cajones y para jugo segun su peso.
     
     Pre:
-        -cantidad (int): Cantidad de naranjas cosechadas.
+        -cantidad, int: Cantidad de naranjas cosechadas.
     
     Post:
         -tuple: Numero de naranjas aptas para cajones, numero de naranjas para jugo.
@@ -31,15 +33,15 @@ def clasificar_naranjas(cantidad: int) -> tuple:
             para_jugo += 1
     return aptas, para_jugo
 
-def calcular_cajones_y_sobrantes(naranjas_aptas: int) -> tuple:
+def calcular_cajones_y_sobrantes(naranjas_aptas: int) -> Tuple:
     """
     Calcula el numero de cajones llenos y las naranjas sobrantes.
     
     Pre:
-        -naranjas_aptas (int): Numero de naranjas aptas para cajones.
+        - naranjas_aptas, int: Numero de naranjas aptas para cajones.
     
     Post:
-        -tuple: Numero de cajones llenos, numero de naranjas sobrantes.
+        - tuple: Numero de cajones llenos, numero de naranjas sobrantes.
     """
     cajones_llenos = naranjas_aptas // 100
     sobrantes = naranjas_aptas % 100
@@ -50,7 +52,7 @@ def calcular_camiones_necesarios(cajones: int) -> int:
     Calcula el numero de camiones necesarios para transportar los cajones.
     
     Pre:
-        -cajones (int): Numero de cajones llenos.
+        -cajones, int: Numero de cajones llenos.
     
     Post:
         -int: Numero de camiones necesarios.
@@ -66,6 +68,8 @@ def calcular_camiones_necesarios(cajones: int) -> int:
 def main() -> None:
     """
     Funcion principal que solicita la cantidad de naranjas cosechadas y muestra los resultados.
+
+    No retorna nada.
     """
     cantidad_naranjas = int(input("Cantidad de naranjas cosechadas: "))
     naranjas_aptas, naranjas_para_jugo = clasificar_naranjas(cantidad_naranjas)

@@ -55,17 +55,19 @@ Visualmente estos números forman rectángulos:
     *****
 """
 
-# Función lambda para informar si un número es oblongo
+# Evalua si un numero ingresado por el usuario es oblongo
 es_oblongo = lambda n: any(k * (k + 1) == n for k in range(1, n))
 
-# Función lambda para informar si un número es triangular
+# Evalua si un numero ingresado por el usuario es triangular
 es_triangular = lambda n: any(k * (k + 1) // 2 == n for k in range(1, n))
 
 
-def main():
+def main() -> None:
     """
     Le solicita al usuario un numero entero y evalua si
-    el numero es 'triangular' o 'oblongo'.
+    el numero es 'triangular' o 'oblongo' con funciones lambda.
+
+    No retorna nada.
     """
     try:
         numero = int(input("Ingrese un numero para evaluar: "))
@@ -82,6 +84,7 @@ def main():
         print(f"El numero {numero} es triangular.")
     else:
         print(f"El numero {numero} no es triangular.")
+    return None
 
 
 if __name__ == "__main__":

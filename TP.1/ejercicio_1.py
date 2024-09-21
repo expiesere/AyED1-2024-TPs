@@ -1,16 +1,16 @@
 """Ejercicio 1"""
 
 
-def mayor_estricto(a, b, c):
+def mayor_estricto(a: int, b: int, c: int) -> int:
     """
     Evalua 3 numeros enteros positivos y devuelve el mayor valor unico o -1 si no existe.
 
     Pre:
-    - a, b, c son enteros positivos.
+    - a, b, c son numeros enteros positivos.
 
     Post:
-    - Devuelve el mayor valor si es único.
-    - Devuelve -1 si no hay un valor mayor único.
+    - Valor mayor unico encontrado.
+    - -1 si mayor unico no existe.
     """
     max_val = max(a, b, c)
 
@@ -22,27 +22,34 @@ def mayor_estricto(a, b, c):
         return -1
 
 
-def main():
+def main() -> None:
     """
-    Solicita al usuario tres numeros enteros positivos e invoca la funcion mayor_estricto.
+    Solicita al usuario tres numeros enteros positivos e invoca la funcion 'mayor_estricto'
+    para evaluar los numeros y encontrar un valor mayor unico.
 
     Pre:
-    - Los valores que se ingresan deben ser enteros positivos.
+        -Usuario ingresa 3 valores enteros positivos
 
     Post:
-    - Muestra el mayor valor unico o un mensaje si no existe.
-    """
+        -Imprime valor mayor unico o un mensaje si no encontro
 
-    a = int(input("Ingrese el primer numero entero positivo: "))
-    b = int(input("Ingrese el segundo numero entero positivo: "))
-    c = int(input("Ingrese el tercer numero entero positivo: "))
+    No retorna nada.
+    """
+    try:
+        a = int(input("Primer numero entero positivo: "))
+        b = int(input("Segundo numero entero positivo: "))
+        c = int(input("Tercer numero entero positivo: "))
+    except ValueError:
+        print("Error: Se deben ingresar numeros enteros.")
+        return
 
     resultado = mayor_estricto(a, b, c)
-
     if resultado != -1:
         print(f"El mayor valor unico es: {resultado}")
+        return
     else:
         print("No existe un valor mayor unico.")
+
     return None
 
 

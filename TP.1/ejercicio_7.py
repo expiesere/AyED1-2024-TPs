@@ -1,5 +1,5 @@
 """Ejercicio 7"""
-
+from typing import Tuple
 
 def es_bisiesto(anio: int) -> bool:
     """
@@ -21,24 +21,24 @@ def fecha_valida(dia: int, mes: int, anio: int) -> bool:
     diccionario 'dia_x_mes = {mes:dia}' y la funcion 'es_bisiesto'.
 
     Pre:
-    - 'day', 'month', 'year' son numeros enteros positivos.
-    - 'month' esta en un rango de 1 a 12.
-    - 'day' esta en un rango de 1 a 31.
-    - 'year' es mayor a 0.
+    - 'dia', 'mes', 'anio' son numeros enteros positivos.
+    - 'mes' esta en un rango de 1 a 12.
+    - 'dia' esta en un rango de 1 a 31.
+    - 'anio' es mayor a 0.
 
     Post:
-    - Devuelve 'True' si la fecha es valida, de lo contrario, 'False'.
+    - Devuelve 'True' si la fecha es valida, de lo contrario, 'False' y explota.
     """
-    dias_x_mes = DIAS_X_MES.copy()
+    copia = dias_x_mes.copy()
 
     if anio < 1 or mes < 1 or mes > 12 or dia < 1:
         return False
     if mes == 2 and es_bisiesto(anio):
-        dias_x_mes[2] = 29
+        copia[2] = 29
     else:
-        dias_x_mes[2] = 28
+        copia[2] = 28
     if mes in dias_x_mes:
-        if dia > dias_x_mes[mes]:
+        if dia > copia[mes]:
             return False
     else:
         return False
@@ -46,60 +46,46 @@ def fecha_valida(dia: int, mes: int, anio: int) -> bool:
     return True
 
 
-def diasiguiente(dia: int, mes: int, anio: int) -> tuple[int, int, int]:
+def dia_siguiente(dia: int, mes: int, anio: int) -> Tuple[int, int, int]:
     """
     Calcula el dia siguiente a la fecha dada.
 
     Pre:
-    - 'dia', 'mes', 'año' son numeros enteros positivos.
+    - dia: int, mes: int, anio: int, son numeros enteros positivos.
     - La fecha ingresada es válida.
 
     Post:
-    - Devuelve tres enteros correspondientes al dia siguiente.
+    - Tuple: Devuelve tres enteros correspondientes al dia siguiente.
     """
-    dias_x_mes = {
-        1: 31,
-        2: 28,
-        3: 31,
-        4: 30,
-        5: 31,
-        6: 30,
-        7: 31,
-        8: 31,
-        9: 30,
-        10: 31,
-        11: 30,
-        12: 31,
-    }
+    copia = dias_x_mes.copy()
 
     if es_bisiesto(anio):
-        dias_x_mes[2] = 29
+        copia[2] = 29
 
     dia += 1
 
-    if dia > dias_x_mes[mes]:
+    if dia > copia[mes]:
         dia = 1
         mes += 1
         if mes > 12:
             mes = 1
             anio += 1
-
     return dia, mes, anio
 
 
-def sumar_dias(dia: int, mes: int, anio: int, n: int) -> tuple[int, int, int]:
+def sumar_dias(dia: int, mes: int, anio: int, n: int) -> Tuple[int, int, int]:
     """
-    Suma N días a la fecha dada.
+    Suma N cantidad de dias a la fecha dada.
 
     Pre:
-    - 'dia', 'mes', 'año' son numeros enteros positivos.
-    - 'n' es un número entero positivo.
+    - dia: int, mes: int, año: int: Enteros positivo.
+    - n: int: Entero positivo.
 
     Post:
-    - Devuelve tres enteros correspondientes a la nueva fecha.
+    - tuple: Devuelve tres enteros correspondientes a la nueva fecha.
     """
     for _ in range(n):
-        dia, mes, anio = diasiguiente(dia, mes, anio)
+        dia, mes, anio = dia_siguiente(dia, mes, anio)
     return dia, mes, anio
 
 
@@ -108,7 +94,7 @@ def dias_entre_fechas(dia1: int, mes1: int, anio1: int, dia2: int, mes2: int, an
     Calcula la cantidad de dias entre dos fechas.
 
     Pre:
-    - 'dia1', 'mes1', 'año1', 'dia2', 'mes2', 'año2' son numeros enteros positivos.
+    - 'dia1', 'mes1', 'anio1', 'dia2', 'mes2', 'anio2' son numeros enteros positivos.
     - Las fechas ingresadas son validas.
 
     Post:
@@ -116,23 +102,24 @@ def dias_entre_fechas(dia1: int, mes1: int, anio1: int, dia2: int, mes2: int, an
     """
     dias_totales1 = (
         dia1
-        + sum(DIAS_X_MES[m] for m in range(1, mes1))
+        + sum(dias_x_mes[m] for m in range(1, mes1))
         + (anio1 * 365)
         + (anio1 // 4 - anio1 // 100 + anio1 // 400)
     )
     dias_totales2 = (
         dia2
-        + sum(DIAS_X_MES[m] for m in range(1, mes2))
+        + sum(dias_x_mes[m] for m in range(1, mes2))
         + (anio2 * 365)
         + (anio2 // 4 - anio2 // 100 + anio2 // 400)
     )
-
-    return abs(dias_totales2 - dias_totales1)
+    return dias_totales2 - dias_totales1
 
 
 def main() -> None:
     """
     Le solicita al usuario que ingrese una fecha y realiza operaciones segun la opcion seleccionada.
+
+    No retorna nada.
     """
     while True:
         print("\nSeleccione una opcion:")
@@ -149,17 +136,13 @@ def main() -> None:
                     year = int(input("Ingrese el año: "))
                     num = int(input("Ingrese el numero de dias a sumar: "))
                 except ValueError:
-                    print(
-                        "Dato no valido, ingrese valores numericos enteros positivos."
-                    )
+                    print("Dato no valido, ingrese valores numericos enteros positivos.")
                     continue
 
                 if fecha_valida(day, month, year):
                     nuevo_dia, nuevo_mes, nuevo_año = sumar_dias(day, month, year, num)
                     print(f"Fecha original: {day}/{month}/{year}")
-                    print(
-                        f"Fecha después de sumar {num} días: {nuevo_dia}/{nuevo_mes}/{nuevo_año}"
-                    )
+                    print(f"Fecha después de sumar {num} días: {nuevo_dia}/{nuevo_mes}/{nuevo_año}")
                 else:
                     print("Fecha no válida.")
 
@@ -172,16 +155,12 @@ def main() -> None:
                     mes2 = int(input("Ingrese el segundo mes: "))
                     año2 = int(input("Ingrese el segundo año: "))
                 except ValueError:
-                    print(
-                        "Dato no valido, ingrese valores numericos enteros positivos."
-                    )
+                    print("Dato no valido, ingrese valores numericos enteros positivos.")
                     continue
 
                 if fecha_valida(dia1, mes1, año1) and fecha_valida(dia2, mes2, año2):
                     dias = dias_entre_fechas(dia1, mes1, año1, dia2, mes2, año2)
-                    print(
-                        f"Dias entre {dia1}/{mes1}/{año1} y {dia2}/{mes2}/{año2}: {dias} dias"
-                    )
+                    print(f"Dias entre {dia1}/{mes1}/{año1} y {dia2}/{mes2}/{año2}: {dias} dias")
                 else:
                     print("Una o ambas fechas no son validas.")
 
@@ -194,7 +173,7 @@ def main() -> None:
     return None
 
 
-DIAS_X_MES = {
+dias_x_mes = {
     1: 31,
     2: 28,
     3: 31,

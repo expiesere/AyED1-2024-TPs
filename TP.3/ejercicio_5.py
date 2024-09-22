@@ -1,9 +1,20 @@
 """Ejercicio 5"""
 
 import random as rn
+import os
+from typing import List, Tuple
+
+def clear_screen() -> None:
+    """
+    Esta funcion limpia la terminal del usuario.
+    
+    No retorna nada.
+    """
+    os.system("cls" if os.name == "nt" else "clear")
+    return None
 
 
-def mostrar_butacas(sala: list[list[int]]) -> None:
+def mostrar_butacas(sala: List[List[int]]) -> None:
     """
     Muestra por pantalla el estado de cada una de las butacas del cine.
 
@@ -15,7 +26,7 @@ def mostrar_butacas(sala: list[list[int]]) -> None:
     return None
 
 
-def reservar(sala: list[list[int]], fila: int, butaca: int) -> bool:
+def reservar(sala: List[List[int]], fila: int, butaca: int) -> bool:
     """
     Reserva una butaca en la sala de cine si esta disponible.
 
@@ -33,7 +44,7 @@ def reservar(sala: list[list[int]], fila: int, butaca: int) -> bool:
     return False
 
 
-def cargar_sala(sala: list[list[int]]) -> None:
+def cargar_sala(sala: List[List[int]]) -> None:
     """
     Carga la sala con valores aleatorios para simular butacas ya reservadas.
 
@@ -46,7 +57,7 @@ def cargar_sala(sala: list[list[int]]) -> None:
     return None
 
 
-def butacas_libres(sala: list[list[int]]) -> int:
+def butacas_libres(sala: List[List[int]]) -> int:
     """
     Retorna la cantidad de butacas desocupadas en la sala.
 
@@ -59,7 +70,7 @@ def butacas_libres(sala: list[list[int]]) -> int:
     return sum(fila.count(0) for fila in sala)
 
 
-def butacas_contiguas(sala: list[list[int]]) -> tuple[int, int, int]:
+def butacas_contiguas(sala: List[List[int]]) -> Tuple[int, int, int]:
     """
     Busca la secuencia mas larga de butacas libres contiguas en una misma fila.
 
@@ -114,7 +125,10 @@ def seleccionar_1_indice(n: int, tipo: str) -> int:
 def main() -> None:
     """
     Funcion principal que ejecuta el programa.
+
+    No retorna nada.
     """
+    clear_screen()
     n = int(input("Numero de filas: "))
     m = int(input("Numero de butacas por fila: "))
     sala = [[0] * m for _ in range(n)]
@@ -139,9 +153,8 @@ def main() -> None:
 
     fila, inicio, longitud = butacas_contiguas(sala)
     if fila != -1:
-        print(
-            f"\nLa secuencia mas larga de butacas libres contiguas esta en la fila {fila}, comenzando en la butaca {inicio} con una longitud de {longitud}."
-        )
+        print(f"\nLa secuencia mas larga de butacas libres contiguas esta en la fila {fila}")
+        print(f"Desde la butaca {inicio} con una longitud de {longitud}.")
     else:
         print("\nNo hay secuencias de butacas libres contiguas.")
     return None

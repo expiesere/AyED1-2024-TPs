@@ -1,5 +1,14 @@
 """Ejercicio 3"""
+import os
 
+def clear_screen() -> None:
+    """
+    Esta funcion limpia la terminal del usuario.
+    
+    No retorna nada.
+    """
+    os.system("cls" if os.name == "nt" else "clear")
+    return None
 
 def cargar_matriz(n: int) -> list:
     """Genera una matriz de tamaño NxN con numeros enteros unicos en
@@ -18,8 +27,11 @@ def cargar_matriz(n: int) -> list:
 
 def main() -> None:
     """
-    Solicita al usuario el tamaño de la matriz y la imprime.
+    Funcion principal que ejecuta las demas funciones.
+
+    No retorna nada.
     """
+    clear_screen()
     n = int(input("Ingrese el tamaño de la matriz (N x N): "))
     matriz = cargar_matriz(n)
     print("\nMATRIZ: ")

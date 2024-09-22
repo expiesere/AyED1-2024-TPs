@@ -1,9 +1,20 @@
 """Ejercicio 4"""
 
 import random as rn
+import os
+from typing import List, Tuple
+
+def clear_screen() -> None:
+    """
+    Esta funcion limpia la terminal del usuario.
+    
+    No retorna nada.
+    """
+    os.system("cls" if os.name == "nt" else "clear")
+    return None
 
 
-def generar_matriz_produccion(n: int) -> list[list[int]]:
+def generar_matriz_produccion(n: int) -> List[List[int]]:
     """
     Genera una matriz de tamaño N x 7-dias de la semana con
     numeros enteros al azar en el intervalo [0, 150].
@@ -12,12 +23,12 @@ def generar_matriz_produccion(n: int) -> list[list[int]]:
         -n (int): El numero de fábricas.
 
     Post:
-        -list[List[int]]: Matriz Nx7 con la cantidad de bicicletas producidas
+        -List[List[int]]: Matriz Nx7 con la cantidad de bicicletas producidas
     """
     return [[rn.randint(0, 150) for _ in range(7)] for _ in range(n)]
 
 
-def total_por_fabrica(matriz: list[list[int]]) -> list[int]:
+def total_por_fabrica(matriz: List[List[int]]) -> List[int]:
     """
     Calcula el total de bicicletas fabricadas por cada fabrica.
 
@@ -30,7 +41,7 @@ def total_por_fabrica(matriz: list[list[int]]) -> list[int]:
     return [sum(fila) for fila in matriz]
 
 
-def fabrica_max_produccion(matriz: list[list[int]]) -> tuple[int, int, int]:
+def fabrica_max_produccion(matriz: List[List[int]]) -> Tuple[int, int, int]:
     """
     Encuentra la fabrica que mas produjo en un solo dia.
 
@@ -52,7 +63,7 @@ def fabrica_max_produccion(matriz: list[list[int]]) -> tuple[int, int, int]:
     return fabrica, dia, max_produccion
 
 
-def dia_mas_productivo(matriz: list[list[int]]) -> int:
+def dia_mas_productivo(matriz: List[List[int]]) -> int:
     """
     Encuentra el dia mas productivo considerando todas las fabricas combinadas.
 
@@ -68,7 +79,7 @@ def dia_mas_productivo(matriz: list[list[int]]) -> int:
     return produccion_por_dia.index(max(produccion_por_dia))
 
 
-def menor_produccion_por_fabrica(matriz: list[list[int]]) -> list[int]:
+def menor_produccion_por_fabrica(matriz: List[List[int]]) -> List[int]:
     """
     Crea una lista por comprension que contenga la menor cantidad fabricada por cada fabrica.
 
@@ -84,7 +95,10 @@ def menor_produccion_por_fabrica(matriz: list[list[int]]) -> list[int]:
 def main() -> None:
     """
     Funcion principal que ejecuta el programa.
+
+    No retorna nada.
     """
+    clear_screen()
     n = int(input("Ingrese el numero de fabricas: "))
     matriz = generar_matriz_produccion(n)
 

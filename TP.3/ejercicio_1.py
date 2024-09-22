@@ -1,9 +1,19 @@
 """Ejercicio 1"""
 
 import random as rn
+import os
+from typing import List, Tuple
 
+def clear_screen() -> None:
+    """
+    Esta funcion limpia la terminal del usuario.
+    
+    No retorna nada.
+    """
+    os.system("cls" if os.name == "nt" else "clear")
+    return None
 
-def cargar_matriz(n: int) -> list[list[int]]:
+def cargar_matriz(n: int) -> List[List[int]]:
     """
     Una matriz de NxN con numeros enteros al azar, el valor N lo ingresa el usuario.
 
@@ -16,7 +26,7 @@ def cargar_matriz(n: int) -> list[list[int]]:
     return [[rn.randint(1, 100) for _ in range(n)] for _ in range(n)]
 
 
-def ordenar_filas(matriz: list[list[int]]) -> None:
+def ordenar_filas(matriz: List[List[int]]) -> None:
     """
     Ordena en forma ascendente cada una de las filas de la matriz.
 
@@ -31,7 +41,7 @@ def ordenar_filas(matriz: list[list[int]]) -> None:
     return None
 
 
-def intercambiar_filas(matriz: list[list[int]], fila1: int, fila2: int) -> None:
+def intercambiar_filas(matriz: List[List[int]], fila1: int, fila2: int) -> None:
     """
     Intercambia dos filas de la matriz.
 
@@ -43,7 +53,7 @@ def intercambiar_filas(matriz: list[list[int]], fila1: int, fila2: int) -> None:
     matriz[fila1], matriz[fila2] = matriz[fila2], matriz[fila1]
 
 
-def intercambiar_columnas(matriz: list[list[int]], col1: int, col2: int) -> None:
+def intercambiar_columnas(matriz: List[List[int]], col1: int, col2: int) -> None:
     """
     Intercambia dos columnas de la matriz.
 
@@ -56,7 +66,7 @@ def intercambiar_columnas(matriz: list[list[int]], col1: int, col2: int) -> None
         fila[col1], fila[col2] = fila[col2], fila[col1]
 
 
-def trasponer_matriz(matriz: list[list[int]]) -> None:
+def trasponer_matriz(matriz: List[List[int]]) -> None:
     """
     Transpone la matriz sobre si misma.
 
@@ -69,7 +79,7 @@ def trasponer_matriz(matriz: list[list[int]]) -> None:
             return matriz[i][j], matriz[j][i] == matriz[j][i], matriz[i][j]
 
 
-def promedio_fila(matriz: list[list[int]], fila: int) -> float:
+def promedio_fila(matriz: List[List[int]], fila: int) -> float:
     """
     Calcula el promedio de los elementos de una fila.
 
@@ -83,7 +93,7 @@ def promedio_fila(matriz: list[list[int]], fila: int) -> float:
     return sum(matriz[fila]) / len(matriz[fila])
 
 
-def porcentaje_impares_columna(matriz: list[list[int]], col: int) -> float:
+def porcentaje_impares_columna(matriz: List[List[int]], col: int) -> float:
     """
     Calcula el porcentaje de elementos con valor impar en una columna.
 
@@ -99,7 +109,7 @@ def porcentaje_impares_columna(matriz: list[list[int]], col: int) -> float:
     return (impares / n) * 100
 
 
-def es_simetrica_diagonal_principal(matriz: list[list[int]]) -> bool:
+def es_simetrica_diagonal_principal(matriz: List[List[int]]) -> bool:
     """
     Determina si la matriz es simetrica con respecto a su diagonal principal.
 
@@ -117,7 +127,7 @@ def es_simetrica_diagonal_principal(matriz: list[list[int]]) -> bool:
     return True
 
 
-def es_simetrica_diagonal_secundaria(matriz: list[list[int]]) -> bool:
+def es_simetrica_diagonal_secundaria(matriz: List[List[int]]) -> bool:
     """
     Determina si la matriz es simetrica con respecto a su diagonal secundaria.
 
@@ -135,7 +145,7 @@ def es_simetrica_diagonal_secundaria(matriz: list[list[int]]) -> bool:
     return True
 
 
-def es_capicua(matriz: list[list[int]]) -> list[int]:
+def es_capicua(matriz: List[List[int]]) -> list[int]:
     """
     Determina que columnas de la matriz son capicuas.
 
@@ -156,7 +166,7 @@ def es_capicua(matriz: list[list[int]]) -> list[int]:
             return "No hay capicua... :("
 
 
-def imprimir_matriz(matriz: list[list[int]]) -> None:
+def imprimir_matriz(matriz: List[List[int]]) -> None:
     """
     Imprime la matriz.
 
@@ -168,7 +178,7 @@ def imprimir_matriz(matriz: list[list[int]]) -> None:
     return None
 
 
-def seleccionar_2_indices(n: int, tipo: str) -> tuple[int, int]:
+def seleccionar_2_indices(n: int, tipo: str) -> Tuple[int, int]:
     """
     Muestra los indices disponibles y permite al usuario seleccionar
     dos indices, verificando que sean validos.
@@ -182,18 +192,12 @@ def seleccionar_2_indices(n: int, tipo: str) -> tuple[int, int]:
     """
     while True:
         try:
-            indice1 = int(
-                input(f"\n...Indice de la primera {tipo} a intercambiar (0 a {n-1}): ")
-            )
-            indice2 = int(
-                input(f"...Indice de la segunda {tipo} a intercambiar (0 a {n-1}): ")
-            )
+            indice1 = int(input(f"\n...Indice de la primera {tipo} a intercambiar (0 a {n-1}): "))
+            indice2 = int(input(f"...Indice de la segunda {tipo} a intercambiar (0 a {n-1}): "))
             if 0 <= indice1 < n and 0 <= indice2 < n and indice1 != indice2:
                 return indice1, indice2
             else:
-                print(
-                    f"Importante! Los indices estan entre 0 y {n-1} y que no deben ser iguales."
-                )
+                print(f"Importante! Los indices estan entre 0 y {n-1} y que no deben ser iguales.")
         except ValueError:
             print("Ingrese numeros enteros validos >:(")
     return None
@@ -225,8 +229,12 @@ def seleccionar_1_indice(n: int, tipo: str) -> int:
 
 def main() -> None:
     """
-    Funcion principal que ejecuta el programa.
+    Funcion principal que ejecuta las demas funciones.
+
+    No retorna nada.
     """
+
+    clear_screen()
     n = int(input("Ingrese el tamaño de la matriz (N x N): "))
     matriz = cargar_matriz(n)
 

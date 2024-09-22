@@ -1,5 +1,16 @@
 """Ejercicio 3"""
+import os
 
+def clear_screen() -> None:
+    """
+    Esta funcion limpia la terminal del usuario.
+    
+    No retorna nada.
+    """
+    os.system("cls" if os.name == "nt" else "clear")
+    return None
+
+clear_screen()
 # Solicita al usuario que ingrese el valor de n
 n = int(input("Ingresa un numero entero: "))
 

@@ -1,5 +1,14 @@
 """Ejercicio 12"""
+import os
 
+def clear_screen() -> None:
+    """
+    Esta funcion limpia la terminal del usuario.
+    
+    No retorna nada.
+    """
+    os.system("cls" if os.name == "nt" else "clear")
+    return None
 
 def registrar_ingresos():
     """
@@ -61,6 +70,7 @@ def main():
     """
     Funcion principal que coordina el registro, cuenta los ingresos y elimina un socio dado de baja.
     """
+    clear_screen()
     ingresos = registrar_ingresos()
     conteo = contar_ingresos(ingresos)
 

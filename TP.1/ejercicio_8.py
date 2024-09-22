@@ -1,6 +1,15 @@
 """Ejercicio 8"""
-
+import os
 from tabulate import tabulate
+
+def clear_screen() -> None:
+    """
+    Esta funcion limpia la terminal del usuario.
+    
+    No retorna nada.
+    """
+    os.system("cls" if os.name == "nt" else "clear")
+    return None
 
 def dia_de_la_semana(day: int, month: int, year: int) -> int:
     """
@@ -57,13 +66,10 @@ def imprimir_calendario(month: int, year: int) -> None:
             dia += 1
 
     # Imprimir el calendario usando tabulate
-    print(
-        tabulate(
+    print(tabulate(
             calendario,
             headers=["Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"],
-            tablefmt="grid",
-        )
-    )
+            tablefmt="grid",))
     return None
 
 def main() -> None:
@@ -73,6 +79,7 @@ def main() -> None:
 
     No retorna nada.
     """
+    clear_screen()
     # Solicitar entrada del usuario
     month = int(input("Introduce el mes (1-12): "))
     year = int(input("Introduce el año: "))

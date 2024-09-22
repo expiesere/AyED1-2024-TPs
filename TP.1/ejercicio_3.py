@@ -1,5 +1,14 @@
 """Ejercicio 3"""
+import os
 
+def clear_screen() -> None:
+    """
+    Esta funcion limpia la terminal del usuario.
+    
+    No retorna nada.
+    """
+    os.system("cls" if os.name == "nt" else "clear")
+    return None
 
 def obtener_valor_pasaje(cantidad_viajes: int) -> float:
     """
@@ -36,6 +45,7 @@ def main() -> None:
 
     No retorna nada.
     """
+    clear_screen()
     while True:
         try:
             cantidad_viajes = int(input("Cantidad de viajes realizados: "))

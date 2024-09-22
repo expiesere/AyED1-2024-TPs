@@ -54,6 +54,16 @@ Visualmente estos números forman rectángulos:
     *****
     *****
 """
+import os
+
+def clear_screen() -> None:
+    """
+    Esta funcion limpia la terminal del usuario.
+    
+    No retorna nada.
+    """
+    os.system("cls" if os.name == "nt" else "clear")
+    return None
 
 # Evalua si un numero ingresado por el usuario es oblongo
 es_oblongo = lambda n: any(k * (k + 1) == n for k in range(1, n))
@@ -69,6 +79,7 @@ def main() -> None:
 
     No retorna nada.
     """
+    clear_screen()
     try:
         numero = int(input("Ingrese un numero para evaluar: "))
     except ValueError:

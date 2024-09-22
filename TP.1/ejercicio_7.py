@@ -1,5 +1,16 @@
 """Ejercicio 7"""
+import os
 from typing import Tuple
+
+
+def clear_screen() -> None:
+    """
+    Esta funcion limpia la terminal del usuario.
+    
+    No retorna nada.
+    """
+    os.system("cls" if os.name == "nt" else "clear")
+    return None
 
 def es_bisiesto(anio: int) -> bool:
     """
@@ -57,6 +68,7 @@ def dia_siguiente(dia: int, mes: int, anio: int) -> Tuple[int, int, int]:
     Post:
     - Tuple: Devuelve tres enteros correspondientes al dia siguiente.
     """
+    clear_screen()
     copia = dias_x_mes.copy()
 
     if es_bisiesto(anio):
@@ -121,6 +133,7 @@ def main() -> None:
 
     No retorna nada.
     """
+    clear_screen()
     while True:
         print("\nSeleccione una opcion:")
         print("1. Sumar N dias a una fecha")

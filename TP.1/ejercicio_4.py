@@ -1,5 +1,16 @@
 """Ejercicio 4"""
+import os
 from typing import Dict
+
+
+def clear_screen() -> None:
+    """
+    Esta funcion limpia la terminal del usuario.
+    
+    No retorna nada.
+    """
+    os.system("cls" if os.name == "nt" else "clear")
+    return None
 
 def calcular_vuelto(total_compra: int, dinero_recibido: int) -> Dict:
     """
@@ -41,6 +52,7 @@ def main() -> None:
 
     No retorna nada.
     """
+    clear_screen()
     while True:
         try:
             total_compra = int(input("Total de su compra:"))

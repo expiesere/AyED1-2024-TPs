@@ -1,7 +1,17 @@
 """Ejercicio 9"""
 
 import random as rn
+import os
 from typing import Tuple
+
+def clear_screen() -> None:
+    """
+    Esta funcion limpia la terminal del usuario.
+    
+    No retorna nada.
+    """
+    os.system("cls" if os.name == "nt" else "clear")
+    return None
 
 def simular_peso_naranja() -> int:
     """
@@ -71,6 +81,7 @@ def main() -> None:
 
     No retorna nada.
     """
+    clear_screen()
     cantidad_naranjas = int(input("Cantidad de naranjas cosechadas: "))
     naranjas_aptas, naranjas_para_jugo = clasificar_naranjas(cantidad_naranjas)
     cajones_llenos, sobrantes = calcular_cajones_y_sobrantes(naranjas_aptas)

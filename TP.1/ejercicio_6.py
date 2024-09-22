@@ -1,5 +1,14 @@
 """Ejercicio 6"""
+import os
 
+def clear_screen() -> None:
+    """
+    Esta funcion limpia la terminal del usuario.
+    
+    No retorna nada.
+    """
+    os.system("cls" if os.name == "nt" else "clear")
+    return None
 
 def concatenar_numeros(num1: int, num2: int) -> int:
     """
@@ -26,10 +35,10 @@ def main() -> None:
 
     No retorna nada.
     """
+    clear_screen()
+    num1 = int(input("1° numero entero positivo: "))
+    num2 = int(input("2° numero entero positivo: "))
     try:
-        num1 = int(input("1° numero entero positivo: "))
-        num2 = int(input("2° numero entero positivo: "))
-
         if num1 < 0 or num2 < 0:
             print("Error: Los numeros deben ser enteros positivos.")
             return

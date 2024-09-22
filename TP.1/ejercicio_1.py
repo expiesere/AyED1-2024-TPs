@@ -1,5 +1,14 @@
 """Ejercicio 1"""
+import os
 
+def clear_screen() -> None:
+    """
+    Esta funcion limpia la terminal del usuario.
+    
+    No retorna nada.
+    """
+    os.system("cls" if os.name == "nt" else "clear")
+    return None
 
 def mayor_estricto(a: int, b: int, c: int) -> int:
     """
@@ -35,6 +44,7 @@ def main() -> None:
 
     No retorna nada.
     """
+    clear_screen()
     try:
         a = int(input("Primer numero entero positivo: "))
         b = int(input("Segundo numero entero positivo: "))

@@ -1,5 +1,14 @@
 """Ejercicio 1"""
+import os
 
+def clear_screen() -> None:
+    """
+    Esta funcion limpia la terminal del usuario.
+    
+    No retorna nada.
+    """
+    os.system("cls" if os.name == "nt" else "clear")
+    return None
 
 
 def es_capicua(cadena: str) -> bool:
@@ -23,9 +32,11 @@ def es_capicua(cadena: str) -> bool:
 
 def main() -> None:
     """
-    Funcion principal, le solicita al usuario una cadena de caracteres y
-    utiliza la funcion 'es_capicua' para verificar su validez.
+    Funcion principal que ejecuta las demas funciones.
+
+    No retorna nada.
     """
+    clear_screen()
     cadena = input("Escriba una cadena de caracteres para determinar si es capicua: ")
     if es_capicua(cadena):
         print(f'"{cadena}" es una cadena capicua.')

@@ -1,5 +1,14 @@
 """Ejercicio 3"""
+import os
 
+def clear_screen() -> None:
+    """
+    Esta funcion limpia la terminal del usuario.
+    
+    No retorna nada.
+    """
+    os.system("cls" if os.name == "nt" else "clear")
+    return None
 
 
 def obtener_claves(clave_maestra: str) -> tuple:
@@ -27,9 +36,11 @@ def obtener_claves(clave_maestra: str) -> tuple:
 
 def main() -> None:
     """
-    Funcion principal que solicita al usuario la clave maestra
-    y muestra las dos claves obtenidas.
+    Funcion principal que ejecuta las demas funciones.
+
+    No retorna nada.
     """
+    clear_screen()
     clave_maestra = input("Ingrese la clave maestra: ")
     clave1, clave2 = obtener_claves(clave_maestra)
     print(f"Clave 1: {clave1}")

@@ -1,5 +1,14 @@
 """Ejercicio 7"""
+import os
 
+def clear_screen() -> None:
+    """
+    Esta funcion limpia la terminal del usuario.
+    
+    No retorna nada.
+    """
+    os.system("cls" if os.name == "nt" else "clear")
+    return None
 
 
 def eliminar_subcadena_rebanadas(cadena: str, posicion: int, cantidad: int) -> str:
@@ -38,11 +47,11 @@ def eliminar_subcadena_sin_rebanadas(cadena: str, posicion: int, cantidad: int) 
 
 def main() -> None:
     """
-    Funcion principal que solicita al usuario una cadena, una posicion y una cantidad de caracteres.
-    ELIMINA una subcadena y muestra el resultado con dos funciones: funcion con rebanadas y
-    funcion sin rebanadas.
-    :3
+    Funcion principal que ejecuta las demas funciones.
+
+    No retorna nada.
     """
+    clear_screen()
     cadena = "Lic. en Gestion de Tecnologias de la Informacion"
     posicion = 25
     cantidad = 9

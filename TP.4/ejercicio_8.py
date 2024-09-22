@@ -1,5 +1,14 @@
 """Ejercicio 8"""
+import os
 
+def clear_screen() -> None:
+    """
+    Esta funcion limpia la terminal del usuario.
+    
+    No retorna nada.
+    """
+    os.system("cls" if os.name == "nt" else "clear")
+    return None
 
 
 def ultimos_n_caracteres(cadena: str, n: int) -> str:
@@ -23,9 +32,11 @@ def ultimos_n_caracteres(cadena: str, n: int) -> str:
 
 def main() -> None:
     """
-    Funcion principal para verificar el comportamiento de
-    ultimos_n_caracteres_sin_rebanadas.
+    Funcion principal que ejecuta las demas funciones.
+
+    No retornada nada
     """
+    clear_screen()
     cadena = "Lic. en Gestion de Tecnologias de la Informacion"
     n = 9
     resultado = ultimos_n_caracteres(cadena, n)

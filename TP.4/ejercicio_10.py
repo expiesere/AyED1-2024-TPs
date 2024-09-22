@@ -1,8 +1,18 @@
 """Ejercicio 10"""
+import os
+from typing import Tuple
+
+def clear_screen() -> None:
+    """
+    Esta funcion limpia la terminal del usuario.
+    
+    No retorna nada.
+    """
+    os.system("cls" if os.name == "nt" else "clear")
+    return None
 
 
-def reemplazar_palabra(
-    texto: str, palabra_vieja: str, palabra_nueva: str) -> tuple[str, int]:
+def reemplazar_palabra(texto: str, palabra_vieja: str, palabra_nueva: str) -> Tuple[str, int]:
     """
     Reemplaza todas las apariciones de una palabra por otra en una cadena de caracteres.
 
@@ -27,9 +37,11 @@ def reemplazar_palabra(
 
 def main() -> None:
     """
-    Función principal, le solicita al usuario el texto y las palabras a reemplazar.
-    Luego muestra el resultado del reemplazo y el número total de reemplazos realizados.
+    Funcion principal que ejecuta las demas funciones.
+
+    No retorna nada.
     """
+    clear_screen()
     texto = input("Introduzca una cadena de caracteres: ")
     total_reemplazos = 0
 

@@ -1,5 +1,14 @@
 """Ejercicio 4"""
+import os
 
+def clear_screen() -> None:
+    """
+    Esta funcion limpia la terminal del usuario.
+    
+    No retorna nada.
+    """
+    os.system("cls" if os.name == "nt" else "clear")
+    return None
 
 
 def entero_a_romano(numero: int) -> str:
@@ -40,9 +49,11 @@ def entero_a_romano(numero: int) -> str:
 
 def main() -> None:
     """
-    Funcion principal que solicita al usuario un
-    numero entero y muestra su representación en numeros romanos.
+    Funcion principal que ejecuta las demas funciones.
+
+    No retorna nada.
     """
+    clear_screen()
     numero = int(input("Ingrese un numero entero entre 0 y 3999: "))
     try:
         romano = entero_a_romano(numero)

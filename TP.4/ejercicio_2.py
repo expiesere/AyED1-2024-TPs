@@ -1,5 +1,14 @@
 """Ejercicio 2"""
+import os
 
+def clear_screen() -> None:
+    """
+    Esta funcion limpia la terminal del usuario.
+    
+    No retorna nada.
+    """
+    os.system("cls" if os.name == "nt" else "clear")
+    return None
 
 
 def centrar_cadena(cadena: str) -> None:
@@ -19,9 +28,11 @@ def centrar_cadena(cadena: str) -> None:
 
 def main() -> None:
     """
-    Funcion principal que solicita al usuario una cadena de caracteres y
-    la imprime centrada.
+    Funcion principal que ejecuta las demas funciones.
+
+    No retorna nada.
     """
+    clear_screen()
     cadena = input("Escriba una cadena de caracteres: ")
     centrar_cadena(cadena)
     return None

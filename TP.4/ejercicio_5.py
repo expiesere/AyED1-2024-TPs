@@ -1,5 +1,14 @@
 """Ejercicio 5"""
+import os
 
+def clear_screen() -> None:
+    """
+    Esta funcion limpia la terminal del usuario.
+    
+    No retorna nada.
+    """
+    os.system("cls" if os.name == "nt" else "clear")
+    return None
 
 
 def filtrar_palabras_ciclos(frase: str, n: int) -> str:
@@ -52,9 +61,11 @@ def filtrar_palabras_filter(frase: str, n: int) -> str:
 
 def main() -> None:
     """
-    Funcion principal que solicita al usuario una frase y un numero N,
-    y muestra las palabras filtradas.
+    Funcion principal que ejecuta las demas funciones.
+
+    No retorna nada.
     """
+    clear_screen()
     frase = input("Escriba una frase: ")
     n = int(input("¿Cual es el numero minimo de caracteres?: "))
 
